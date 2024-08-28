@@ -52,6 +52,7 @@ const App: React.FC = () => {
         </Typography>
       )}
       <PokemonList pokemons={pokemons} onSelect={handleSelectPokemon} />
+      {battleResult && <BattleResult winnerName={battleResult} />}
       {selectedPokemon && opponent && (
         <div>
           <div
@@ -89,7 +90,6 @@ const App: React.FC = () => {
               Start Battle
             </Button>
           </div>
-          {battleResult && <BattleResult winnerName={battleResult} />}
         </div>
       )}
     </Container>

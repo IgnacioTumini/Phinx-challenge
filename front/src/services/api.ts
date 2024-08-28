@@ -19,7 +19,7 @@ export const battlePokemons = async (
       pokemon1Id,
       pokemon2Id,
     });
-    return response.data.winner;
+    return response.data.winner.name;
   } catch (error) {
     console.log(error);
   }
