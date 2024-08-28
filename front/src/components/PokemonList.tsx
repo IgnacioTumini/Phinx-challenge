@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
 import {
   Box,
   Card,
@@ -14,7 +13,7 @@ interface PokemonListProps {
   onSelect: (pokemon: any) => void;
 }
 
-const PokemonList: React.FC<PokemonListProps> = ({ pokemons, onSelect }) => {
+const PokemonList = ({ pokemons, onSelect }: PokemonListProps) => {
   return (
     <Box
       display="flex"

@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent, Typography, LinearProgress } from "@mui/material";
 
 export interface PokemonProps {
@@ -11,14 +10,14 @@ export interface PokemonProps {
   speed: number;
 }
 
-const PokemonCard: React.FC<PokemonProps> = ({
+const PokemonCard = ({
   name,
   imageUrl,
   hp,
   attack,
   defense,
   speed,
-}) => {
+}: PokemonProps) => {
   return (
     <Card style={{ width: "30%", height: "auto" }}>
       <img
