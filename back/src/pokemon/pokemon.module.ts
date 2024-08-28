@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PokemonService } from './pokemon.service';
 import { PokemonController } from './pokemon.controller';
 import { Pokemon } from './pokemon.entity';
-import { BattleResult } from './battle-result.entity';
+import { BattleResult } from './battleResult.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Pokemon, BattleResult])],

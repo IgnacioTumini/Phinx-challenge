@@ -7,7 +7,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Pokemon } from './pokemon.entity';
-import { BattleResult } from './battle-result.entity';
+import { BattleResult } from './battleResult.entity';
 
 @Injectable()
 export class PokemonService implements OnModuleInit {
@@ -126,7 +126,7 @@ export class PokemonService implements OnModuleInit {
       const loser = winner === pokemon1 ? pokemon2 : pokemon1;
       const date = new Date();
       //Guardar el resultado de la batalla en la base de datos
-      await this.saveBattleResult(winner, loser, date);
+      await this.saveBattleResult(winner.name, loser.name, date.toString());
       return { winner, loser };
     } catch (error) {
       if (error instanceof NotFoundException) {
@@ -136,9 +136,9 @@ export class PokemonService implements OnModuleInit {
     }
   }
   async saveBattleResult(
-    winner: Pokemon,
-    loser: Pokemon,
-    date: Date,
+    winner: string,
+    loser: string,
+    date: string,
   ): Promise<void> {
     try {
       const battleResult = this.battleResultRepository.create({
@@ -146,7 +146,19 @@ export class PokemonService implements OnModuleInit {
         loser,
         date,
       });
-      await this.battleResultRepository.save(battleResult);
+      const result = await this.battleResultRepository.save(battleResult);
+      console.log(result);
+    } catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+  }
+
+  async getBattleResults(): Promise<BattleResult[]> {
+    try {
+      console.log('entre a getBattleResults');
+      const result = await this.battleResultRepository.find();
+      console.log(result);
+      return result; // Obtener todos los resultados de la batalla en la base de datos
     } catch (error) {
       throw new InternalServerErrorException(error);
     }
