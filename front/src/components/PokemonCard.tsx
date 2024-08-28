@@ -29,13 +29,25 @@ const PokemonCard: React.FC<PokemonProps> = ({
       <CardContent>
         <Typography variant="h5">{name}</Typography>
         <Typography variant="body2">HP</Typography>
-        <LinearProgress variant="determinate" value={hp * 10} />
+        <LinearProgress variant="determinate" color="success" value={hp * 10} />
         <Typography variant="body2">Attack</Typography>
-        <LinearProgress variant="determinate" value={attack * 10} />
+        <LinearProgress
+          variant="determinate"
+          color="success"
+          value={attack * 10}
+        />
         <Typography variant="body2">Defense</Typography>
-        <LinearProgress variant="determinate" value={defense * 10} />
+        <LinearProgress
+          variant="determinate"
+          color="success"
+          value={defense * 10}
+        />
         <Typography variant="body2">Speed</Typography>
-        <LinearProgress variant="determinate" value={speed * 10} />
+        <LinearProgress
+          variant="determinate"
+          color="success"
+          value={speed * 10}
+        />
       </CardContent>
     </Card>
   );

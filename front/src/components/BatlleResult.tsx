@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import "./styles.css";
 
 const BattleResult = ({ winnerName }: { winnerName: string }) => {
   return (
