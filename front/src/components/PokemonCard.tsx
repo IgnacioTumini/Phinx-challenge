@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardContent, Typography, LinearProgress } from "@mui/material";
 
-interface PokemonProps {
+export interface PokemonProps {
+  id: string;
   name: string;
   imageUrl: string;
   stats: {
@@ -12,7 +13,7 @@ interface PokemonProps {
   };
 }
 
-const PokemonCard: React.FC<PokemonProps> = ({ name, imageUrl, stats }) => {
+const PokemonCard: React.FC<PokemonProps> = ({ id, name, imageUrl, stats }) => {
   return (
     <Card>
       <img
@@ -21,6 +22,7 @@ const PokemonCard: React.FC<PokemonProps> = ({ name, imageUrl, stats }) => {
         style={{ width: "100%", height: "auto" }}
       />
       <CardContent>
+        <Typography variant="h6">{id}</Typography>
         <Typography variant="h5">{name}</Typography>
         <Typography variant="body2">HP</Typography>
         <LinearProgress variant="determinate" value={stats.hp * 20} />
