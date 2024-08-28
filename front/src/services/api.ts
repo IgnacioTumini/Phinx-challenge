@@ -2,7 +2,8 @@ import axios from "axios";
 
 export const getPokemons = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/pokemons");
+    const response = await axios.get("http://localhost:3000/pokemon");
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -14,7 +15,7 @@ export const battlePokemons = async (
   pokemon2Id: string
 ) => {
   try {
-    const response = await axios.post("http://localhost:3000/pokemons/battle", {
+    const response = await axios.post("http://localhost:3000/pokemon/battle", {
       pokemon1Id,
       pokemon2Id,
     });

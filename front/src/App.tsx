@@ -11,7 +11,10 @@ const App: React.FC = () => {
     id: "",
     name: "",
     imageUrl: "",
-    stats: { hp: 0, attack: 0, defense: 0, speed: 0 },
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    speed: 0,
   });
   const [opponent, setOpponent] = useState<PokemonProps | null>(null);
   const [battleResult, setBattleResult] = useState("");
@@ -62,23 +65,19 @@ const App: React.FC = () => {
               id={selectedPokemon.id}
               name={selectedPokemon.name}
               imageUrl={selectedPokemon.imageUrl}
-              stats={{
-                hp: selectedPokemon.stats.hp,
-                attack: selectedPokemon.stats.attack,
-                defense: selectedPokemon.stats.defense,
-                speed: selectedPokemon.stats.speed,
-              }}
+              hp={selectedPokemon.hp}
+              attack={selectedPokemon.attack}
+              defense={selectedPokemon.defense}
+              speed={selectedPokemon.speed}
             />
             <PokemonCard
               id={opponent.id}
               name={opponent.name}
               imageUrl={opponent.imageUrl}
-              stats={{
-                hp: opponent.stats.hp,
-                attack: opponent.stats.attack,
-                defense: opponent.stats.defense,
-                speed: opponent.stats.speed,
-              }}
+              hp={opponent.hp}
+              attack={opponent.attack}
+              defense={opponent.defense}
+              speed={opponent.speed}
             />
           </div>
           <div style={{ textAlign: "center", marginTop: "20px" }}>
