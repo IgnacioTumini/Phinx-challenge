@@ -6,15 +6,18 @@ import { BattleResult } from './battleResult.entity';
 @Controller('pokemon')
 export class PokemonController {
   constructor(private readonly pokemonService: PokemonService) {}
-  @Get('battleResults')
+
+  @Get('history')
   async getBattleResults(): Promise<BattleResult[]> {
     console.log('entre al controller');
     return await this.pokemonService.getBattleResults();
   }
-  @Get('all')
+
+  @Get()
   async findAll(): Promise<Pokemon[]> {
     return await this.pokemonService.findAll();
   }
+
   @Post('battle')
   async battle(@Body() battleDto: { pokemon1Id: string; pokemon2Id: string }) {
     return this.pokemonService.battle(
