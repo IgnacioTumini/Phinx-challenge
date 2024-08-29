@@ -19,7 +19,7 @@ const PokemonCard = ({
   speed,
 }: PokemonProps) => {
   return (
-    <Card style={{ width: "30%", height: "auto" }}>
+    <Card style={{ width: "40%", height: "auto" }}>
       <img
         src={imageUrl}
         alt={name}

@@ -71,15 +71,7 @@ const App: React.FC = () => {
               defense={selectedPokemon.defense}
               speed={selectedPokemon.speed}
             />
-            <div style={{ textAlign: "center", marginTop: "200px" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleStartBattle}
-              >
-                Start Battle
-              </Button>
-            </div>
+            <div style={{ textAlign: "center", marginTop: "200px" }}></div>
             <PokemonCard
               id={opponent.id}
               name={opponent.name}
@@ -90,6 +82,13 @@ const App: React.FC = () => {
               speed={opponent.speed}
             />
           </div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleStartBattle}
+          >
+            Start Battle
+          </Button>
         </div>
       )}
     </Container>
