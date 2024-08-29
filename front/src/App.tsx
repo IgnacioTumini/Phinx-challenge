@@ -4,6 +4,7 @@ import PokemonList from "./components/PokemonList";
 import PokemonCard, { PokemonProps } from "./components/PokemonCard";
 import BattleResult from "./components/BatlleResult";
 import { getPokemons, battlePokemons } from "./services/api";
+import "./App.css";
 
 const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<PokemonProps[] | []>([]);
@@ -54,8 +55,15 @@ const App: React.FC = () => {
       <PokemonList pokemons={pokemons} onSelect={handleSelectPokemon} />
       {battleResult && <BattleResult winnerName={battleResult} />}
       {selectedPokemon && opponent && (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
           <div
+            className="pokemon-container"
             style={{
               display: "flex",
               justifyContent: "space-around",
@@ -71,7 +79,19 @@ const App: React.FC = () => {
               defense={selectedPokemon.defense}
               speed={selectedPokemon.speed}
             />
-            <div style={{ textAlign: "center", marginTop: "200px" }}></div>
+
+            <div
+              className="battle-button"
+              style={{ textAlign: "center", marginTop: "200px" }}
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleStartBattle}
+              >
+                Start Battle
+              </Button>
+            </div>
             <PokemonCard
               id={opponent.id}
               name={opponent.name}
@@ -82,13 +102,6 @@ const App: React.FC = () => {
               speed={opponent.speed}
             />
           </div>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleStartBattle}
-          >
-            Start Battle
-          </Button>
         </div>
       )}
     </Container>
